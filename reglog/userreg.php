@@ -54,17 +54,14 @@
 
         if ($mysqli->query($sql) === TRUE) {
           echo("<br/>Account created successfully");
-          header("Location: ulogin.php", true, 301);
+          header("Location: ulogin.html", true, 301);
           //redirect to login page
         } else {
           echo ("<br/>Error: " . $sql . "<br>" . $mysqli->error);
           //insert error
         }
+        $mysqli->close();
       ?>
     </p>
   </body>
 </html>
-
-<?php
-  $mysqli->close();
-?>

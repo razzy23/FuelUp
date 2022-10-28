@@ -1,28 +1,3 @@
-<html>
-  <head>
-    <title>Recieving data</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Data recieved from the user registration form</h1>
-    <<div class="signupFrm">
-        <form action="" method="POST" class="form" >
-          <h1 class="title">User Login</h1>
-
-          <div class="inputContainer">
-            <input type="text" name="phone" class="input" placeholder="a" required>
-            <label for="" class="label">Phone number</label>
-          </div>
-    
-          <div class="inputContainer">
-            <input type="text" name="pass" class="input" placeholder="a" required>
-            <label for="" class="label">Password</label>
-          </div>
-    
-          <input type="submit" class="submitBtn" value="Login">
-        </form>
-      </div>
-    <p>
       <?php
 
         $db_host = 'localhost';
@@ -59,17 +34,10 @@
 
         if ($result->num_rows !=0) {
           echo("<br/>Login successful");
-          header("Location: dash.html", true, 301);
+          header("Location: ../dash.html", true, 301);
           //redirect to dashboard page
         } else {
           echo ("<br/>Error: " . $sql . "<br>" . $mysqli->error);
         }
-
-      ?>
-    </p>
-  </body>
-</html>
-
-<?php
   $mysqli->close();
 ?>

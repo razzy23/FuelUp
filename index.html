@@ -3,49 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>User registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Welcome User</title>
 </head>
 <body>
-    <div class="signupFrm">
-        <form action="data.php" method="POST" class="form" >
-          <h1 class="title">User registration</h1>
-    
-          <div class="inputContainer">
-            <input type="text" name="nic" class="input" placeholder="a"required>
-            <label for="" class="label">NIC</label>
-          </div>
+    <div>
+        <a href="index.html">
+            <img src="./imgs/logo.png" alt="logo" id="logo">
+        </a>
+        <h1 id="title">Welcome to FuelUp</h1>
+        <h5 class="subtitle">Please create an account or log in to your existing account</h5>
 
-          <div class="inputContainer">
-            <input type="text" name="phone" class="input" placeholder="a" required>
-            <label for="" class="label">Phone number</label>
-          </div>
+    </div>
     
-          <div class="inputContainer">
-            <input type="text" name="uname" class="input" placeholder="a" required>
-            <label for="" class="label">Username</label>
-          </div>
-
-          <div class="inputContainer">
-            <input type="text" name="email" class="input" placeholder="a" >
-            <label for="" class="label">Email</label>
-          </div>
-    
-          <div class="inputContainer">
-            <input type="text" name="pass" class="input" placeholder="a" required>
-            <label for="" class="label">Password</label>
-          </div>
-    
-          <div class="inputContainer">
-            <input type="text" name="conf" class="input" placeholder="a" required>
-            <label for="" class="label">Confirm Password</label>
-          </div>
-
-          <input type="checkbox" name="terms" id="terms">&ensp; I agree to the terms and conditions
-    
-          <input type="submit" class="submitBtn" value="Sign up">
-        </form>
-      </div>
+    <div id="container1">
+        <a href="reglog/userreg.html">
+            <div class="box1">
+                Create Account
+            </div>
+        </a>
+        <a href="reglog/ulogin.html">
+            <div class="box1">
+                Log In
+            </div>
+        </a>          
+    </div>
 </body>
 </html>
