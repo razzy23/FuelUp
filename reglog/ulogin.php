@@ -1,4 +1,5 @@
       <?php
+        session_start();
 
         $db_host = 'localhost';
         $db_user = 'root';
@@ -21,7 +22,8 @@
         $pass = $_POST['pass'];
         //getting data from the form
 
-        if(strlen($phone) > 10){
+        if(strlen($phone)!=10){
+          header("Location: ./ulogin.php", true, 301);
           die ("Invalid number");
         }
 
@@ -32,12 +34,16 @@
         $row = $result->fetch_assoc();
         //checking if the user exists
 
-        if ($result->num_rows !=0) {
-          echo("<br/>Login successful");
-          header("Location: ../dash.html", true, 301);
+        if (is_array($row)) {
+          $_SESSION['phone'] = $row['phone'];
+          $_SESSION['pass'] = $row['password'];
+          $_SESSION['uname'] = $row['name'];
+          echo('login successful');
+          echo('<script>alert("Login successful");</script>');
+          header("Location: ../dash.php", true, 301);
           //redirect to dashboard page
         } else {
-          echo ("<br/>Error: " . $sql . "<br>" . $mysqli->error);
+          echo ('<script>alert("Invalid credentials");</script>');
         }
   $mysqli->close();
 ?>

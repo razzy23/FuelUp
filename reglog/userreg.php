@@ -49,7 +49,7 @@
         }
         //validation
 
-        $sql = "INSERT INTO users (nic, phone, name, email, password) VALUES ('$nic', '$phone', '$name', '$email', '$pass')";
+        $sql = "INSERT INTO users (nic, phone, name, email, password) VALUES ('$nic', '$phone', '$uname', '$email', '$pass')";
         //sql query to insert data to the account if valid
 
         if ($mysqli->query($sql) === TRUE) {
