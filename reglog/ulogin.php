@@ -22,8 +22,8 @@
         $pass = $_POST['pass'];
         //getting data from the form
 
-        if(strlen($phone)!=10){
-          header("Location: ./ulogin.php", true, 301);
+        if(strlen($phone)>10){
+          header("Location: ./ulogin.html", true, 301);
           die ("Invalid number");
         }
 

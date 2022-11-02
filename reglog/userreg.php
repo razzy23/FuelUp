@@ -22,8 +22,10 @@
       if($pass != $conf){
         die ("Registration error:<br/>Passwords do not match");
       }
-      if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !$email==null){
-        die ("Registration error:<br/>Invalid email");
+      if($email != null){
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+          die ("Registration error:<br/>Invalid email address"); //emails can be null or should have a correct entry
+        }
       }
       if(strlen($nic) > 12){
         die ("Invalid NIC");

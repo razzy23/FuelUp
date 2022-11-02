@@ -28,7 +28,7 @@
     $vnum = explode("-", $_POST['vnum'],2);
     $let = $vnum[0];
     $num = $vnum[1];
-    $chas = $_POST['chassis'];
+    $chas = $_POST['chasis'];
     $vtype = $_POST['type'];
     $fuel = $_POST['fuel'];
     $terms = filter_input(INPUT_POST, 'terms', FILTER_VALIDATE_BOOLEAN); 
@@ -47,10 +47,13 @@
         echo("<br/>Account created successfully");
         if($mysqli->query($sql2) === TRUE){
             echo("<br/>Vehicle registered successfully");
-            header("Location: dash.html", true, 301);
+            header("Location: dash.php", true, 301);
         }
         else{
             echo("<br/>Error: ".$sql2."<br/>".$mysqli->error);
+            $mysqli->query("DELETE FROM users WHERE nic = '$nic'");
+            echo("<br/>Account deleted");
+            header("Location: userreg.html", true, 301);
         }
         
         //redirect to login page
