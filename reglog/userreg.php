@@ -8,7 +8,8 @@
       <?php
       session_start();
 
-      $_SESSION['nic'] = $_POST['nic'];
+      $nic = $_POST['nic'];
+      $_SESSION['nic'] = $nic;
       $phone=$_POST['phone'];
       $_SESSION['phone'] = $phone;
       $_SESSION['uname'] = $_POST['uname'];

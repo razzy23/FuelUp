@@ -1,7 +1,5 @@
 <?php
     session_start();
-
-    session_start();
     $db_host = 'localhost';
     $db_user = 'root';
     $db_password = 'root';
@@ -41,7 +39,7 @@
         echo("Welcome ".$_SESSION['uname']);
         
 
-        $quota = "SELECT bal_quota AND alloc_quota FROM vehicles, users WHERE $_SESSION['phone'] = user.phone AND user.user_id = vehicle.user_id"
+        $quota = "SELECT bal_quota AND alloc_quota FROM vehicles, users WHERE $_SESSION['phone'] = user.phone AND user.u_id = vehicle.u_id"
 
         $result = $mysqli->query($quota);
         $row = $result->fetch_assoc();
