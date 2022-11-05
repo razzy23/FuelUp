@@ -1,6 +1,6 @@
 <?php
-
     session_start();
+
     $db_host = 'localhost';
     $db_user = 'root';
     $db_password = 'root';
@@ -40,26 +40,42 @@
     }
     //validation
 
-    $sql1 = "INSERT INTO users (nic, phone, name, email, password) VALUES ('$nic', '$phone', '$uname', '$email', '$pass')";
-    $sql2 ="INSERT INTO vehicles VALUES ('$nic', '$let', '$num', '$vtype', '$fuel', '$chas')";
-
+    $sql1 = "INSERT INTO users (nic, phone, name, email, password) VALUES ('$nic', '$phone', '$uname', '$email', '$pass');";
+    
+    
     if ($mysqli->query($sql1) === TRUE) {
         echo("<br/>Account created successfully");
-        if($mysqli->query($sql2) === TRUE){
-            echo("<br/>Vehicle registered successfully");
-            header("Location: dash.php", true, 301);
-        }
-        else{
-            echo("<br/>Error: ".$sql2."<br/>".$mysqli->error);
-            $mysqli->query("DELETE FROM users WHERE nic = '$nic'");
-            echo("<br/>Account deleted");
-            header("Location: userreg.html", true, 301);
-        }
-        
-        //redirect to login page
+        $sql2 = "SELECT u_id FROM users WHERE nic = '$nic';"; //error in this line 
+
     } else {
         echo ("<br/>Error: " . $sql . "<br>" . $mysqli->error);
         //insert error
     }
+        
+    if($mysqli->query($sql2) === TRUE){
+        echo("<br/>userID obtained successfully");
+        $result = $mysqli->query($sql2);
+        $row = $result->fetch_assoc();
+        $id = $row['u_id'];
+        echo("<br/>userID: ".$id);
+
+        $sql3 = "INSERT INTO vehicles (u_id, vletter, vnumber, vtype, vfuel, chassis) VALUES ('$id', '$let', '$num', '$vtype', '$fuel', '$chas')";
+
+        if($mysqli->query($sql3) === TRUE){
+            echo("<br/>Vehicle registered successfully");
+                //header("Location: dash.php", true, 301);
+        }
+        else{
+            echo("<br/>Vehicle registration error:<br/>".$mysqli->error);
+        }
+            
+    }else{
+        echo("<br/>Error: ".$sql2."<br/>".$mysqli->error);
+        $mysqli->query("DELETE FROM users WHERE nic = '$nic'");
+        echo("<script>alert('Account deleted')</script>");
+        //header("Location: userreg.html", true, 301);
+    }
+        
+        //redirect to login page
     $mysqli->close();
 ?>
