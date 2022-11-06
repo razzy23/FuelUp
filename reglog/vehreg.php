@@ -45,35 +45,32 @@
     
     if ($mysqli->query($sql1) === TRUE) {
         echo("<br/>Account created successfully");
-        $sql2 = "SELECT u_id FROM users WHERE nic = '$nic';"; //error in this line 
+        $sql2 = "SELECT * FROM `users` WHERE nic = $nic"; //error in this line 
 
     } else {
         echo ("<br/>Error: " . $sql . "<br>" . $mysqli->error);
         //insert error
     }
-        
+
+    if($vtype == 'Car'){
+        $quota = 20;
+    }else if($vtype == 'Van'){
+        $quota = 30;
+    }else if($vtype == 'Truck'){
+        $quota = 40;
+    }else if($vtype == 'Bike'){
+        $quota = 10;
+    }
+    
+    $sql2 = "INSERT INTO vehicles (nic, vletter, vnumber, vtype, vfuel, chassis, alloc_quota, bal_quota) VALUES ('$nic', '$let', '$num', '$vtype', '$fuel', '$chas', '$quota', '$quota')";
     if($mysqli->query($sql2) === TRUE){
-        echo("<br/>userID obtained successfully");
-        $result = $mysqli->query($sql2);
-        $row = $result->fetch_assoc();
-        $id = $row['u_id'];
-        echo("<br/>userID: ".$id);
-
-        $sql3 = "INSERT INTO vehicles (u_id, vletter, vnumber, vtype, vfuel, chassis) VALUES ('$id', '$let', '$num', '$vtype', '$fuel', '$chas')";
-
-        if($mysqli->query($sql3) === TRUE){
-            echo("<br/>Vehicle registered successfully");
-                //header("Location: dash.php", true, 301);
-        }
-        else{
-            echo("<br/>Vehicle registration error:<br/>".$mysqli->error);
-        }
-            
-    }else{
-        echo("<br/>Error: ".$sql2."<br/>".$mysqli->error);
+        echo("<script>alert('Account created and vehicle registered')</script>");
+        header("Location: ../dash.php", true, 301);
+    }
+    else{
+        echo("<br/>Vehicle registration error:<br/>".$mysqli->error);
         $mysqli->query("DELETE FROM users WHERE nic = '$nic'");
         echo("<script>alert('Account deleted')</script>");
-        //header("Location: userreg.html", true, 301);
     }
         
         //redirect to login page
