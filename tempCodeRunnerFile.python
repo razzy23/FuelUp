@@ -1,0 +1,5 @@
+print("Please enter yout credits at pass")
+credits = input()
+
+if int(credits) == 0:
+    print("Interger required")

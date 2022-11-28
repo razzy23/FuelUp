@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>FuelUp</title>
+</head>
+<body>
+    <div class="signupFrm">
+        <img src="../imgs/logo2.png" alt="logo" id="logo2">
+        <form action="AddDriver.php" method="POST" class="form" >
+          <div id="regorlogin">
+            <h1 class="title">Organization Driver Registration</h1>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" name="username" class="input" placeholder="a"required>
+            <label for="" class="label">User Name</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="text" name="NIC" class="input" placeholder="a"required>
+            <label for="" class="label">National Registeration Number</label>
+          </div>
+
+    
+          <div class="inputContainer">
+            <input type="email" name="email" class="input" placeholder="a" required>
+            <label for="" class="label">Email</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="number" name="PhoneNo" class="input" placeholder="a" required>
+            <label for="" class="label">Mobile Number</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="password" name="password" class="input" placeholder="a" required>
+            <label for="" class="label">Password</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="password" name="password_confirmation" class="input" placeholder="a" required>
+            <label for="" class="label">Confirm Password</label>
+          </div>
+
+          <input type="checkbox" name="terms" id="terms">&ensp; I agree to the terms and conditions
+
+          <input type="submit" class="submitBtn" value="Sign up">
+        </form>
+      </div>
+</body>
+</html>
+

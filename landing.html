@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelUp</title>
+
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows:1fr 2fr;
+            grid-template-areas: "header header" "box1 box2";
+        }
+
+        .header{
+            grid-area: header;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        .cont{
+            width: 358px;
+            height: auto;
+            display: flex;
+
+            margin:auto auto;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(217, 217, 217, 0.3);
+            border: 6px solid #E14761;
+            border-radius: 18px;
+        }
+
+        #box1{
+            grid-area: box1;
+        }   
+
+        #box2{
+            grid-area: box2;
+        }
+        
+        .button{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+            margin:15px 5px 10px 5px;
+
+            width: 278px;
+            height: 71px;
+
+            background: #66676A;
+            color: white;
+            border-radius: 13px;
+        }
+
+        .account{
+            margin-top:15px;
+        }
+
+        .button:hover{
+            background: #E14761;
+            cursor: pointer;
+        }
+        a{
+            text-decoration: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <!-- <img src="imgs/logo.png" alt="logo" id="logo"> -->
+        <h1>Welcome User</h1>
+        <p>Please select your account type and function</p>
+    </div>
+
+    <div class="cont" id="box1">
+        <div class="account">Personal</div>
+        <a href="../Project/registration/customer.html">    
+            <div class="button">Create Account</div>
+        </a>
+        <div class="button">Log In</div>
+    </div>
+
+    <div class="cont" id="box2">
+        <div class="account">Business</div>
+        <a href="organization/OrgAdmin_Registration.html">
+            <div class="button">Create Account</div>
+        </a>
+
+        <a href="organization/OAlogin.php">
+        <div class="button">Login as Admin
+        </div> </a>
+
+        <a href="organization/ODlogin.php">
+            <div class="button">Log in as Driver</div>
+            </a>
+    </div>
+</body>
+</html>
