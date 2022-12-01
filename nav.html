@@ -1,0 +1,72 @@
+<!-- navigation bar for admin  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a.hover{
+            cursor: pointer;
+        }
+        .nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+        }
+        .logo{
+            width: 100px;
+            height: 100px;
+        }
+        .logout{
+            width: 30px;
+            height: 30px;
+        }
+        #container{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f1f1f1;
+        }
+        .item{
+            width: 150px;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+        }
+        .item:hover{
+            color:rgb(200, 108, 123) ;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+            <div class="logo">
+                <a href="admindashboard.html"><img class="logo" src="../assets/logo.png"></a>
+            </div>
+            <div class="nav">
+                    <div class="item"><a id="vehicles" href="vehiclerecords.php">Vehicles</a></div>
+                    <div class="item"><a id="customers" href="customerrecords.php">Customers</a></div>
+                    <div class="item"><a id="orgs" href="orgrecords.php">Organizations</a></div>
+                    <div class="item"><a id="stations" href="stationrecords.php">Stations</a></div>
+                    <div class="item"><a id="complains" href="complainsview.php">Complains</a></div>
+                    <div class="item"><a id="transactions" href="adminfunctions.php">Transactions</a></div>
+                    <div class="item"></div>
+                    <div id="logout"><form action="adminloginout.php" method="POST"><button type="submit" name="logout"><img class="logout" src="../assets/exit.png"></button></form></div>
+        </div>
+    </div>
+</body>
+</html>
