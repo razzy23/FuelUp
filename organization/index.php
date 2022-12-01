@@ -30,14 +30,15 @@ if (isset($_SESSION["user_id"])) {
         
         <p>Hello <?= htmlspecialchars($user["CompanyName"]) ?></p>
         <p><a href="AddDriver.html">Add driver</a></p>
-        <p><a href="logoutD.php">Log out</a></p>
+        <p><a href="DriverTable.php">Driver List</a></p>
+        <p><a href="logout.php">Log out</a></p>
         
     <?php else: ?>
         
         <p><a href="OAlogin.php">Log in</a> or <a href="OrgAdmin_Registration.html">sign up</a></p>
         
     <?php endif; ?>
-    
+
 </body>
 </html>
     
