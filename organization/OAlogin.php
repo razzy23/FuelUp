@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
           <div class="inputContainer">
             <input type="number" name="BRN" class="input" placeholder="a" id="BRN"
-               value="<?= htmlspecialchars($_POST["BRN"] ?? "") ?>" required>
+               value="<?= htmlspecialchars($_POST["BRN"] ?? "") ?>" required>`
             <label for="BRN" class="label">BRN</label>
           </div>
     
