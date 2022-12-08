@@ -28,18 +28,17 @@
         $result = $conn->query($sql);
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo "<div class='complain>";
-                echo "<p>Customer: ".$row['complain_owner']."&ensp;".$row['date']."</p>";
-                echo "<p>Complain Description: ".$row['description']."</p>";
-                echo "<p>Complain Status: ".$row['status']."</p>";
+                echo ("<br><b>Customer:</b> ".$row['complain_owner']."&ensp;".$row['date']."</br>
+                        <b>Topic:</b> ".$row['topic']."<br/>
+                        <b>Description:</b> ".$row['description']."<br/>
+                        <b>Status:</b> ".$row['status']."</br>");
                 if($row['status'] == "pending"){
-                    echo "Response: <form action='complainsview.php' method='POST'>
+                    echo "<b>Response:</b> <form action='complainsview.php' method='POST'>
                     <textarea name='response' placeholder='Enter response' rows='4' cols='140'></textarea>
                     <button type='submit' name='resolve' value='".$row['complain_id']."'>Resolve</button></form>";
                 }else{
                     echo "<p>Response: ".$row['response']."</p>";
                 }
-                echo "</div>";
             }
         }
 
@@ -48,7 +47,7 @@
             $response = $_POST['response'];
             $sql = "UPDATE complains SET response='$response', status='Resolved' WHERE complain_id='$id'";
             if($conn->query($sql) === TRUE){
-                echo "<script>document.location.reload()</script>";
+                header("Location: complainsview.php");
             }
             else{
                 echo "Error: ".$sql."<br>".$conn->error;
