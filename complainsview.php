@@ -19,7 +19,7 @@
     </script>
     <title>Complains view</title>
 </head>
-<body>
+<body>                                      
     <div id="nav-placeholder"></div>
     <h1>Complains view</h1>
 
@@ -32,7 +32,7 @@
                 echo "<p>Customer: ".$row['complain_owner']."&ensp;".$row['date']."</p>";
                 echo "<p>Complain Description: ".$row['description']."</p>";
                 echo "<p>Complain Status: ".$row['status']."</p>";
-                if($row['status'] == "Pending"){
+                if($row['status'] == "pending"){
                     echo "Response: <form action='complainsview.php' method='POST'>
                     <textarea name='response' placeholder='Enter response' rows='4' cols='140'></textarea>
                     <button type='submit' name='resolve' value='".$row['complain_id']."'>Resolve</button></form>";
