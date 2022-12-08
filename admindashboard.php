@@ -22,6 +22,14 @@
 <body>
     <div id="nav-placeholder"></div>
     <h1>Admin Dashboard</h1>
+    
+    <?php 
+        session_start();
+        $uname = $_SESSION['uname'];
+        echo("<h2>Welcome $uname</h2>");
+        //greeting message (just to confirm which account is in use at the moment)
+    ?>
+
     <div class = "nav2">
         <a id="vehicles" href="vehiclerecords.php"><div class="item2">Vehicles</div></a>
         <a id="customers" href="customerrecords.php"><div class="item2">Customers</div></a>
