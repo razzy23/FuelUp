@@ -35,7 +35,7 @@
         <a id="customers" href="customerrecords.php"><div class="item2">Customers</div></a>
         <a id="orgs" href="organizationrecords.php"><div class="item2">Organizations</div></a>
         <a id="stations" href="stationrecords.php"><div class="item2">Stations</div></a>
-        <a id="complains" href="complainsview.php"><div class="item2">Complains</div></a>
+        <a id="complains" href="complainsview.php?complainsbtn=pending"><div class="item2">Complains</div></a>
         <a id="transactions" href="adminfunctions.php"><div class="item2">Transactions</div></a>
     </div>
 </body>

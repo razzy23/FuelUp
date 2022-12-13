@@ -38,3 +38,19 @@ table, th, td {
     border-radius: 10px;
     width: 100%;
 }
+
+#loginform{
+    width: 60%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+#button{
+    width:20px;
+    height: 10px;
+    background-color: #E14761;
+    color: #ffffff;
+}

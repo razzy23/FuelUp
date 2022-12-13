@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="adminstyles.css" rel="stylesheet">
     <title>Admin-Login</title>
 </head>
 <body>
-    <h1>Admin Login</h1>
-    <form action="adminlogin.php" method="POST"> <!-- Front end bit to get login deets -->
-        <input type="text" name="uname" placeholder="Admin name">
-        <input type="password" name="password" placeholder="Admin password">
-        <input type="password" name="pin" placeholder="Secret key">
-        <button type="submit" name="login">Login</button>
-    </form>
+    <div id="loginform">
+        <h1>Admin Login</h1>
+        <form action="adminlogin.php" method="POST"> <!-- Front end bit to get login deets -->
+            <input type="text" name="uname" placeholder="Admin name"><br/></br>
+            <input type="password" name="password" placeholder="Admin password"><br/><br/>
+            <input type="password" name="pin" placeholder="Secret key"><br/><br/>
+            <button type="submit" name="login"><div id="button">Login</div></button>
+        </form>
+    </div> 
 </body>
 </html>
 

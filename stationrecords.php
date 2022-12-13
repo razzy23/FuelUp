@@ -71,30 +71,30 @@
     if(array_key_exists('filter', $_POST)) {
         if($_POST['sno'] != ""){
             $sno = $_POST['sno'];
-            $sno_q = " WHERE station_id = '$sno'";
+            $sno_q = " WHERE station_id = '$sno'"; //concat variable
             echo("where station id is".$sno);
         }
         if($_POST['location'] != ""){
             $location = $_POST['location'];
             if($sno_q != ""){
-                $loc_q = " AND Location = '$location'";
+                $loc_q = " AND Location = '$location'"; //concat variable
                 echo("and location is ".$location);
             }else{
-                $loc_q = " WHERE Location = '$location'";
+                $loc_q = " WHERE Location = '$location'"; //concat variable
                 echo("where location is ".$location);
             }
         }
         if($_POST['company'] != ""){
             $company = $_POST['company'];
             if($sno_q != "" || $loc_q != ""){
-                $comp_q = " AND company = '$company'";
+                $comp_q = " AND company = '$company'"; //concat variable
                 echo("and company is ".$company);
             }else{
-                $comp_q = " WHERE company = '$company'";
+                $comp_q = " WHERE company = '$company'"; //concat variable
                 echo("where location is ".$company);
             }
         }
-        $sql = "SELECT * FROM station".$sno_q.$loc_q.$comp_q;
+        $sql = "SELECT * FROM station".$sno_q.$loc_q.$comp_q; //concatenation for sql query
         $result = $conn->query($sql); 
     }else{
         $sql = "SELECT * FROM station";
@@ -103,12 +103,12 @@
     
     ?>
     <table class="records">
-        <tr><th>ID</th><th>Name</th><th>Location</th><th>Company</th><th>petrol92 balance</th><th>petrol95 balance</th><th>Diesel balance</th><th>Super-diesel balance</th><th>Kerosene balance</th><th>phone number</th></tr>
+        <tr><th>ID</th><th>Name</th><th>Location</th><th>Company</th><th colspan=2>petrol92</th><th colspan=2>petrol95</th><th colspan=2>Diesel</th><th colspan=2>Super-diesel</th><th colspan=2>Kerosene</th><th>phone number</th></tr>
 
         <?php 
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
-                    echo "<tr><td>".$row["station_id"]."</td><td>".$row["Name"]."</td><td>".$row["Location"]."</td><td>".$row["Company"]."</td><td>".$row["petrol92_bal"]."</td><td>".$row["petrol95_bal"]."</td><td>".$row["diesel_bal"]."</td><td>".$row["supdiesel_bal"]."</td><td>".$row["kerosene_bal"]."</td><td>".$row["Phone"]."</td></tr>";
+                    echo "<tr><td>".$row["station_id"]."</td><td>".$row["Name"]."</td><td>".$row["Location"]."</td><td>".$row["Company"]."</td><td>".$row["petrol92_bal"]."</td><td>".$row["petrol92_tank"]."</td><td>".$row["petrol95_bal"]."</td><td>".$row["petrol95_tank"]."</td><td>".$row["diesel_bal"]."</td><td>".$row["diesel_tank"]."</td><td>".$row["supdiesel_bal"]."</td><td>".$row["supdiesel_tank"]."</td><td>".$row["kerosene_bal"]."</td><td>".$row["kerosene_tank"]."</td><td>".$row["Phone"]."</td></tr>";
                 }
             }
             
