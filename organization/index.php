@@ -10,18 +10,24 @@ if (isset($_SESSION["user_id"])) {
              WHERE id = {$_SESSION["user_id"]}";            
      $result = $mysqli->query($sql);
      $user = $result->fetch_assoc();
-
-     $ADminID= "SELECT BRN FROM org_admin WHERE id = {$_SESSION["user_id"]}";
-     $result = $mysqli->query($ADminID);
-     $BRN = $result->fetch_assoc();
      
  }
+
+// if (isset($_GET['id'])){
+//     $id = $_GET['id'];
+//     $sql = mysqli_query($conn,"DELETE FROM org_driver WHERE id = $id");
+//     if ($sql){
+//         header("location: index.php");
+//         die();
+//     }
+// }
+
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>FuelUp</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
@@ -55,7 +61,9 @@ if (isset($_SESSION["user_id"])) {
         </thead>
         <tbody>
             <?php
-            echo($BRN);
+
+            $Data = $_SESSION["BRN"];
+            $BRN = $Data;
             $mysqli = require __DIR__ . "/database.php";
             $res=mysqli_query($mysqli,"select * from org_driver WHERE BRN ='$BRN'");
             while($row=mysqli_fetch_array($res)){
@@ -65,7 +73,8 @@ if (isset($_SESSION["user_id"])) {
                             <td>" .$row["NIC"] . "</td>
                             <td>" .$row["email"] . "</td>
                             <td>
-                                <a href='delete'>Delete</a>
+
+                                <a href='index.php'>Delete</a>
                             </td>
                         </tr>";
                 }

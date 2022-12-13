@@ -1,5 +1,6 @@
 <?php
 
+
 $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -23,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             session_regenerate_id();
             
             $_SESSION["user_id"] = $user["id"];
+            $data = $_POST["BRN"];
+            $_SESSION["BRN"] = $data;
             
             header("Location: index.php");
             exit;
@@ -53,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="signupFrm">
         <img src="../imgs/logo2.png" alt="logo" id="logo2">
         
-        <form method="POST" class="form" >
+        <form action="" method="POST" class="form" >
             <div id="regorlogin">
                 <h1 class="title">Admin Login</h1>
                 <a href="OrgAdmin_Registration.html" id="mis">Don't have an account? Sign up instead</a>
@@ -74,5 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
         </form>
       </div>
+
 </body>
 </html>
