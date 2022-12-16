@@ -5,9 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
+    <link href="../FuelUp-raz-admin/adminstyles.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+        $.get("nav.html", function(data){
+            $("#nav-placeholder").replaceWith(data);
+            document.getElementById("Drivers").style.color = "#E14761";
+        });
+        
+    </script>
     <title>FuelUp</title>
 </head>
 <body>
+  <div id="nav-placeholder"></div>
     <div class="signupFrm">
         <img src="../imgs/logo2.png" alt="logo" id="logo2">
         <form action="AddDriver.php" method="POST" class="form" >
@@ -51,6 +61,8 @@
           <input type="submit" class="submitBtn" value="Sign up">
         </form>
       </div>
+
+
 </body>
 </html>
 

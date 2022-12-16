@@ -1,0 +1,72 @@
+<!-- navigation bar for admin  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a.hover{
+            cursor: pointer;
+        }
+        .nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+        }
+        .logo{
+            width: 100px;
+            height: 100px;
+        }
+        .logout{
+            width: 30px;
+            height: 30px;
+        }
+        #container{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f1f1f1;
+        }
+        .item{
+            width: 150px;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+        }
+        .item:hover{
+            color:rgb(200, 108, 123) ;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+            <div class="logo">
+                <a href="index.php"><img class="logo" src="../imgs/logo.png"></a>
+            </div>
+            <div class="nav">
+                    <div class="item"><a id="FF" href="">Find Fuel</a></div>
+                    <div class="item"><a id="QR" href="">QR Code</a></div>
+                    <div class="item"><a id="History" href="">History</a></div>
+                    <div class="item"><a id="UVehicle" href="">Update Vehicle</a></div>
+                    <div class="item"></div>
+                    <div id="logout"><form action="logout.php" method="POST"><button type="submit" name="logout"><img class="logout" src="../imgs/exit.png"></button></form></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

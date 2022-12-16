@@ -15,16 +15,10 @@ print_r($_POST);
 session_start();
 $BRN = $_SESSION['BRN'];
 
-if ($_POST["password"] !== $_POST["password_confirmation"]) {
-    die("Passwords must match");
-}
-
-$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-
 $mysqli = require __DIR__ . "/database.php";
 
 
-$sql = "INSERT INTO org_driver (username, NIC, email, PhoneNo, password_hash, BRN)
+$sql = "INSERT INTO vehicles (nic, vletter, vnumber, vtype, vfuel, chassis)
         VALUES (?, ?, ?, ?, ?, ?)";
         
 $stmt = $mysqli->stmt_init();
@@ -34,22 +28,21 @@ if ( ! $stmt->prepare($sql)) {
 }
 
 $stmt->bind_param("ssssss",
-                  $_POST["username"],
-                  $_POST["NIC"],
-                  $_POST["email"],
-                  $_POST["PhoneNo"],
-                  $password_hash,
-                  $BRN);
+                  $BRN,
+                  $_POST["vletter"],
+                  $_POST["vnumber"],
+                  $_POST["vtype"],
+                  $_POST["vfuel"],
+                  $_POST["chassis"]);
                   
 if ($stmt->execute()) {
-
     header("Location: RegistrationSuccesful.html");
     exit;
     
 } else {
     
     if ($mysqli->errno === 1062) {
-        die("email already taken");
+        die("Chassis No already taken");
     } else {
         die($mysqli->error . " " . $mysqli->errno);
     }

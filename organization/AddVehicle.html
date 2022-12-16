@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link href="../FuelUp-raz-admin/adminstyles.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+        $.get("nav.html", function(data){
+            $("#nav-placeholder").replaceWith(data);
+            document.getElementById("Vehilces").style.color = "#E14761";
+        });
+        
+    </script>
+    <title>FuelUp</title>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+    <div class="signupFrm">
+        <img src="../imgs/logo2.png" alt="logo" id="logo2">
+        <form action="AddVehicle.php" method="POST" class="form" >
+          <div id="regorlogin">
+            <h1 class="title">Organization Vehicle Registration</h1>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" name="vletter" class="input" placeholder="a"required>
+            <label for="" class="label">Vehicle Registration Number (Letters)</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="text" name="vnumber" class="input" placeholder="a"required>
+            <label for="" class="label">Vehicle Registration Number (Number)</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="text" name="vtype" class="input" placeholder="a"required>
+            <label for="" class="label">Type</label>
+          </div>
+
+    
+          <div class="inputContainer">
+            <input type="text" name="vfuel" class="input" placeholder="a" required>
+            <label for="" class="label">Fuel</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="text" name="chassis" class="input" placeholder="a" required>
+            <label for="" class="label">Chassis Number</label>
+          </div>
+
+          <!-- <input type="checkbox" name="terms" id="terms">&ensp; I agree to the terms and conditions -->
+
+          <input type="submit" class="submitBtn" value="Register">
+        </form>
+      </div>
+
+
+</body>
+</html>
+

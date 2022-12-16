@@ -13,14 +13,16 @@ if (isset($_SESSION["user_id"])) {
      
  }
 
-// if (isset($_GET['id'])){
-//     $id = $_GET['id'];
-//     $sql = mysqli_query($conn,"DELETE FROM org_driver WHERE id = $id");
-//     if ($sql){
-//         header("location: index.php");
-//         die();
-//     }
-// }
+if (isset($_GET['id'])){
+
+    $id = $_GET['id'];
+    $sql = "DELETE FROM org_driver WHERE id = $id";  
+
+    if ($sql){
+        header("location: index.php");
+        die();
+    }
+}
 
 
 ?>
@@ -29,58 +31,51 @@ if (isset($_SESSION["user_id"])) {
 <head>
     <title>FuelUp</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
+    <link href="../FuelUp-raz-admin/adminstyles.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+      $.get("nav.html", function(data){
+            $("#nav-placeholder").replaceWith(data);
+            document.getElementById("Drivers").style.display = 'none';
+            document.getElementById("Vehicles").style.display = 'none';
+            document.getElementById("History").style.display = 'none';
+            document.getElementById("complains").style.display = 'none';
+        });
+        
+    </script>
 </head>
 <body>
-    
-    <h1>Home - Admin </h1>
-    
+<div id="nav-placeholder"></div>    
     <?php if (isset($user)): ?>
 
-        <p>Hello <?= htmlspecialchars($user["CompanyName"]) ?></p>
-        <p><a href="AddDriver.html">Add driver</a></p>
-        <p><a href="logout.php">Log out</a></p>
+    <div class="outerDiv">
+        <div class="leftDiv">
+        <h1>Welcome <?= htmlspecialchars($user["CompanyName"]) ?></h1>
+    </div>
+
+    
+        <div class="rightDiv">
+            <div class = "nav2">
+                    <a id="Drivers" href="Driver.php"><div class="item2">Drivers</div></a>
+                    <a id="vehicles" href="vehicle.php"><div class="item2">Vehicles</div></a>
+            </div>
+            <div class="nav">
+                    <a id="History" href="history.php"><div class="item2">History</div></a>
+                    <a id="complains" href="complain.php"><div class="item2">Complains</div></a>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- <p><a href="logout.php">Log out</a></p> -->
         
     <?php else: ?>
         
         <p><a href="OAlogin.php">Log in</a> or <a href="OrgAdmin_Registration.html">sign up</a></p>
         
     <?php endif; ?>
-
-    <h2>Driver List</h2>
-    <br>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Username</th>
-                <th>NIC</th>
-                <th>Email</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-
-            $Data = $_SESSION["BRN"];
-            $BRN = $Data;
-            $mysqli = require __DIR__ . "/database.php";
-            $res=mysqli_query($mysqli,"select * from org_driver WHERE BRN ='$BRN'");
-            while($row=mysqli_fetch_array($res)){
-                    echo"<tr>
-                            <td>" .$row["id"] . "</td>
-                            <td>" .$row["username"] . "</td>
-                            <td>" .$row["NIC"] . "</td>
-                            <td>" .$row["email"] . "</td>
-                            <td>
-
-                                <a href='index.php'>Delete</a>
-                            </td>
-                        </tr>";
-                }
-            ?>
-        </tbody>
-    </table>
 
 </body>
 </html>

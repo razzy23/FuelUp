@@ -1,0 +1,82 @@
+/* This is the CSS file for the organization. */
+   .outerDiv
+   {
+   background-color: #ffffff;
+   color: #fff;
+   height: 100%;
+   width: 90%;
+   margin: 10px auto;
+   padding: 5px;
+   }
+   .leftDiv
+   {
+   background-color: #ffffff;
+   color: #000;
+   height: 400px;
+   width: 48%;
+   float: left;
+   }
+   .rightDiv
+   {
+   background-color: #ffffff;
+   color: #000;
+   height: 400px;
+   width: 48%;
+   float: right;
+   }			
+
+   table{
+     margin: 1%;
+     width: 90%;
+     border-collapse: collapse;
+     vertical-align: middle;
+     
+   }
+   table, td, th {
+      border: 1px solid black;
+      padding: 8px;
+
+   }
+   th {text-align: left;}
+   
+   thead {
+      background-color: #333;
+      color: white;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 2%;
+
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: #fff;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #eee;
+    }
+
+    .center{
+      display: flex;
+      justify-content: center;
+    }
+
+    .right{
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 5%;
+    }
+
+  .button1{
+      color: rgb(255, 255, 255);
+      background-color: #fcfcfc;
+      border-radius: 8px;
+      padding: 14px 40px;
+      transition-duration: 0.4s;
+  }
+
+ .button1:hover {
+   background-color: #9a9a9a; /* Green */
+   color: #ffffff;
+}
+

@@ -51,7 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
 
     <div class="signupFrm">
+    <a href="../landing.html">
         <img src="../imgs/logo2.png" alt="logo" id="logo2">
+        </a>
         
         <form method="POST" class="form" >
             <div id="regorlogin">

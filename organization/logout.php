@@ -4,5 +4,5 @@ session_start();
 
 session_destroy();
 
-header("Location: ../landing.html");
+header("Location: index.php");
 exit;
