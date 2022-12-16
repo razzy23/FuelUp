@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Vehicle registration</title>
+</head>
+<body>
+    <div class="signupFrm">
+        <img src="../imgs/logo2.png" alt="logo" id="logo2">
+        <form action="vehreg.php" method="POST" class="form" >
+          <div id="regorlogin">
+            <h1 class="title">Vehicle registration</h1>
+            <a href="ulogin.html" id="mis">Have an account? Sign in instead</a>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" name="vnum" class="input" placeholder="a"required>
+            <label for="" class="label">Vehicle number</label>
+          </div>
+
+          <!-- <div class="inputContainer">
+            <input type="text" name="phone" class="input" placeholder="a" required>
+            <label for="" class="label"></label>
+          </div> -->
+    
+          <div class="inputContainer">
+            <input type="text" name="chasis" class="input" placeholder="a" required>
+            <label for="" class="label">Chassis number</label>
+          </div>
+    
+          <!-- <label class="inputtitle">Vehicle type</label> -->
+          <div class="inputContainer">
+            <select name="type" class="input" placeholder="a" required>
+                <option value="" disabled selected hidden>Vehicle type</option>
+                <option value="Car">Car</option>
+                <option value="Van">Van</option>
+                <option value="Truck">Truck</option>
+                <option value="Bike">Bike</option>
+            </select>
+          </div>
+
+          <div>
+            <div class="inputtitle">Fuel type</div>
+            <div class="radiocontainer">
+              <div><input type="radio" name="fuel" placeholder="a" value="petrol" checked>petrol</div>
+              <div><input type="radio" name="fuel" placeholder="a" value="diesel">diesel</div>
+            </div>
+          </div>
+
+          <input type="checkbox" name="terms" id="terms">&ensp; I agree to the terms and conditions
+
+          <input type="submit" class="submitBtn" value="Sign up">
+        </form>
+      </div>
+</body>
+</html>

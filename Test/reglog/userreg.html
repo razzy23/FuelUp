@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>User registration</title>
+</head>
+<body>
+    <div class="signupFrm">
+        <img src="../imgs/logo2.png" alt="logo" id="logo2">
+        <form action="userreg.php" method="POST" class="form" >
+          <div id="regorlogin">
+            <h1 class="title">User registration</h1>
+            <a href="ulogin.html" id="mis">Have an account? Sign in instead</a>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" name="nic" class="input" placeholder="a"required>
+            <label for="" class="label">NIC</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="text" name="phone" class="input" placeholder="a" required>
+            <label for="" class="label">Phone number</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" name="uname" class="input" placeholder="a" required>
+            <label for="" class="label">Username</label>
+          </div>
+
+          <div class="inputContainer">
+            <input type="text" name="email" class="input" placeholder="a" >
+            <label for="" class="label">Email</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" name="pass" class="input" placeholder="a" required>
+            <label for="" class="label">Password</label>
+          </div>
+    
+          <div class="inputContainer">
+            <input type="text" name="conf" class="input" placeholder="a" required>
+            <label for="" class="label">Confirm Password</label>
+          </div>
+
+          <input type="submit" class="submitBtn" value="Next">
+        </form>
+      </div>
+</body>
+</html>
